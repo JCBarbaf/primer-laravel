@@ -85,7 +85,7 @@ main {
     height: 0;
     background-color: var(--lightergreyblue);
     border-inline: var(--border);
-    border-width: 10px;
+    border-width: 5px;
     transition: height 0.3s ease-in;
 }
 .filter.opened .filter-content {
