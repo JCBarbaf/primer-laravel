@@ -38,29 +38,35 @@
         </button>
     </div>
     <form>
-        <div class="form-field">
-            <label for="event-title">Titulo:</label>
-            <input type="text" name="event-title" id="event-title">
+        <div class="form-row">
+            <div class="form-field">
+                <label for="event-title">Titulo:</label>
+                <input type="text" name="event-title" id="event-title">
+            </div>
+            <div class="form-field">
+                <label for="desc">Descripción:</label>
+                <textarea name="desc" id="desc" ></textarea>
+            </div>
         </div>
-        <div class="form-field">
-            <label for="desc">Descripción:</label>
-            <textarea name="desc" id="desc" ></textarea>
+        <div class="form-row">
+            <div class="form-field">
+                <label for="date">Fecha:</label>
+                <input type="date" name="date" id="date">
+            </div>
+            <div class="form-field">
+                <label for="time">Hora:</label>
+                <input type="time" name="time" id="time">
+            </div>
         </div>
-        <div class="form-field">
-            <label for="date">Fecha:</label>
-            <input type="date" name="date" id="date">
-        </div>
-        <div class="form-field">
-            <label for="time">Hora:</label>
-            <input type="time" name="time" id="time">
-        </div>
-        <div class="form-field">
-            <label for="direc">Dirección:</label>
-            <input type="text" name="direc" id="direc">
-        </div>
-        <div class="form-field">
-            <label for="price">Precio:</label>
-            <input type="number" name="price" id="price">
+        <div class="form-row">
+            <div class="form-field">
+                <label for="direc">Dirección:</label>
+                <input type="text" name="direc" id="direc">
+            </div>
+            <div class="form-field">
+                <label for="price">Precio:</label>
+                <input type="number" name="price" id="price">
+            </div>
         </div>
     </form>
 @endsection

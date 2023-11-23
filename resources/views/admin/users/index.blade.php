@@ -75,21 +75,25 @@
         </button>
     </div>
     <form>
-        <div class="form-field">
-            <label for="user">Usuario:</label>
-            <input type="text" name="user" id="user">
+        <div class="form-row">
+            <div class="form-field">
+                <label for="user">Usuario:</label>
+                <input type="text" name="user" id="user">
+            </div>
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+            </div>
         </div>
-        <div class="form-field">
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
-        </div>
-        <div class="form-field">
-            <label for="passwd">Contraseña:</label>
-            <input type="password" name="passwd" id="passwd">
-        </div>
-        <div class="form-field">
-            <label for="conf-passwd">Confirmar contraseña:</label>
-            <input type="password" name="conf-passwd" id="conf-passwd">
+        <div class="form-row">
+            <div class="form-field">
+                <label for="passwd">Contraseña:</label>
+                <input type="password" name="passwd" id="passwd">
+            </div>
+            <div class="form-field">
+                <label for="conf-passwd">Confirmar contraseña:</label>
+                <input type="password" name="conf-passwd" id="conf-passwd">
+            </div>
         </div>
     </form>
 @endsection

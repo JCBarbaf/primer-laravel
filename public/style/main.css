@@ -3,6 +3,7 @@
     --darkblue: #202737;
     --greyblue: #5e3751;
     --lightgreyblue: #969cac;
+    --lightergreyblue: #bbc2d4;
     --main-color: #991f18;
     --white: #cbdbeb;
     --sahdow: 5px 5px 0px 0px rgba(0, 0, 0, 0.2);
@@ -71,7 +72,28 @@ header .logo {
     width: 50px;
     height: 50px;
 }
+main {
+    position: relative;
+}
 .filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.filter-content {
+    height: 0;
+    background-color: var(--lightergreyblue);
+    border-inline: var(--border);
+    border-width: 10px;
+    transition: height 0.3s ease-in;
+}
+.filter.opened .filter-content {
+    height: 80vh;
+    transition: height 0.3s ease-in;
+}
+.filter button {
+    width: 100%;
     background-color: var(--main-color);
     filter: brightness(0.9);
     margin: 0;
@@ -83,9 +105,14 @@ header .logo {
     border-radius: 0 0px var(--radius) var(--radius);
     border-bottom: var(--border);
     border-width: 3px;
+    animation: none;
+    
 }
 .filter .arrow-down {
     width: 12px;
+}
+.filter.opened .arrow-down {
+    transform: rotate(180deg);
 }
 .data {
     width: 95%;
@@ -140,13 +167,15 @@ span,label {
     padding: 1%;
 }
 .data-add form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     padding: 2%;
 }
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
 .form-field {
-    width: 45%;
+    /* width: 45%; */
+    flex: 1;
     margin: 1% 0;
     padding: 1%;
 }

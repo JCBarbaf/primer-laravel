@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/style/normalize.css">
     <link rel="stylesheet" href="/style/main.css">
     <link rel="shortcut icon" href="https://cdn.worldvectorlogo.com/logos/laravel-2.svg" type="image/x-icon">
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
     <header>
@@ -24,6 +25,5 @@
     <main>
         @yield('content')
     </main>
-    <script src="js/main.js"></script>
 </body>
 </html>
