@@ -1,3 +1,3 @@
-document.querySelector(".filter button").addEventListener("click",() => {
-    event.target.parentNode.classList.toggle("opened");
-})
+import './filter.js';
+import './burger.js';
+import './tabs.js';
