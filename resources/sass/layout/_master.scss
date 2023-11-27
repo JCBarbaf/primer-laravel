@@ -1,0 +1,21 @@
+body {
+    background-color: $black;
+    color: $white;
+    font-family: $font;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+main {
+    position: relative;
+}
+.data {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 4%;
+}
+.data>div {
+    border-radius: 20px;
+}

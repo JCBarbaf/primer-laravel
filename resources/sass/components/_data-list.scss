@@ -1,0 +1,27 @@
+.data-list {
+    width: 30%;
+}
+.data-table {
+    width: 95%;
+    background-color: $secondary-color;
+    margin: 0 auto 3%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: $sahdow;
+}
+.data-table-header {
+    background-color: $primary-color;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom: $border;
+    border-width: 2px;
+    padding: 1%;
+}
+.data-table-content {
+    padding: 1% 3%;
+}
+span,label {
+    color: $tertiary-color;
+    margin-right: 1%;
+    font-weight: bold;
+}

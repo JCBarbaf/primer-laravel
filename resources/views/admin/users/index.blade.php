@@ -3,6 +3,8 @@
     Clientes
 @endsection
 @section('data-list')
+    @component('admin.components.data-filter')
+    @endcomponent
     <div class="data-table">
         <div class="data-table-header">
             <button class="edit-button">
