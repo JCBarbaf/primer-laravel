@@ -7,7 +7,7 @@ header {
     border-bottom: $border;
     border-width: 3px;
 }
-header button:hover {
+body>header button:hover {
     animation: none;
 }
 header .logo {
@@ -16,7 +16,7 @@ header .logo {
 }
 .burger-button {
     position: relative;
-    z-index: 30;
+    z-index: $burger-button-zindex;
 }
 .burger-icon {
     width: 40px;
@@ -104,7 +104,7 @@ header .logo {
     border-right: none;
     border-radius: 50px 0 0  50px;
     overflow: hidden;
-    z-index: 20;
+    z-index: $burger-menu-zindex;
     transition: transform 0.3s ease-in;
     transform: translateX(100%);
 }

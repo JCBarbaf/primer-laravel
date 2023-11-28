@@ -1,0 +1,65 @@
+//Filter modal
+.modal {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: $modal-zindex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal.active {
+    visibility: visible;
+}
+.modal-content {
+    background-color: $secondary-color;
+    min-width: 60%;
+    border-radius: 20px;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.1s ease-out;
+}
+.modal.active .modal-content {
+    transform: scale(1);
+}
+.modal-content h3 {
+    background-color: $primary-color;
+    margin: 0;
+    padding: 1%;
+    text-align: center;
+}
+.modal-content form {
+    padding: 2%;
+}
+.modal-content form .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 5%;
+}
+.modal-content form button {
+    background-color: $tertiary-color;
+    padding: 1% 5%;
+    border-radius: 10px;
+}
+.modal-content form button:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+.modal-content .close {
+    background-color: $red;
+}
+// Delete modal
+.delete .modal-content {
+    min-width: 20%;
+    border-radius: 5px;
+}
+.delete .modal-content h3 {
+    padding: 3% 1%;
+}
+.delete.modal button {
+    width: 30%;
+}

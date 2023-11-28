@@ -2,15 +2,16 @@
 svg {
     width: 30px;
 }
-svg * {
+* {
     fill: $white;
 }
 button {
     background: none;
     border: none;
-}
-button:hover {
+    color: inherit;
     cursor: pointer;
+}
+button:has( svg):hover {
     animation: shake 0.2s ease-in forwards;
 }
 label {
@@ -19,12 +20,16 @@ label {
 input {
     display: block;
 }
+span,label {
+    color: $tertiary-color;
+    margin-right: 1%;
+    font-weight: bold;
+}
 input:focus, textarea:focus {
     outline: none;
 }
 *::-webkit-scrollbar {
     width: 5px;
-    padding: 1%;
 }
 *::-webkit-scrollbar-track {
     background: none;
@@ -32,10 +37,11 @@ input:focus, textarea:focus {
 *::-webkit-scrollbar-thumb {
     background: $primary-color;
     border-radius: 10px;
-    height: 20px;
 }
 *::-webkit-scrollbar-thumb:hover {
-    filter: brightness(0.8);
+    // @include background(linear-gradient($color, scale-color($color, $lightness: -20%)));
+    // background-color: $primary-color + #333333;
+    background-color: scale-color($primary-color, $lightness: -20%)
 }
 /* Animaciones */
 @keyframes shake {
