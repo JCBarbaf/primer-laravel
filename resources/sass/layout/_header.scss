@@ -6,13 +6,13 @@ header {
     padding: 0 3%;
     border-bottom: $border;
     border-width: 3px;
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
 }
 body>header button:hover {
     animation: none;
-}
-header .logo {
-    width: 50px;
-    height: 50px;
 }
 .burger-button {
     position: relative;
@@ -36,24 +36,24 @@ header .logo {
     animation: 0.3s ease-in forwards;
     animation-name: burger-open;
     animation-play-state: paused;
-}
-.burger-line:nth-child(1) {
-    --start-y: 15%;
-    --end-y: 50%;
-    --start-rotation: 0deg;
-    --end-rotation: 45deg;
-}
-.burger-line:nth-child(2) {
-    --start-y: 50%;
-    --end-y: 50%;
-    --start-rotation: 0deg;
-    --end-rotation: 45deg;
-}
-.burger-line:nth-child(3) {
-    --start-y: 85%;
-    --end-y: 50%;
-    --start-rotation: 0deg;
-    --end-rotation: -45deg;
+    &:nth-child(1) {
+        --start-y: 15%;
+        --end-y: 50%;
+        --start-rotation: 0deg;
+        --end-rotation: 45deg;
+    }
+    &:nth-child(2) {
+        --start-y: 50%;
+        --end-y: 50%;
+        --start-rotation: 0deg;
+        --end-rotation: 45deg;
+    }
+    &:nth-child(3) {
+        --start-y: 85%;
+        --end-y: 50%;
+        --start-rotation: 0deg;
+        --end-rotation: -45deg;
+    }
 }
 .burger.opened .burger-line {
     animation-name: burger-open;

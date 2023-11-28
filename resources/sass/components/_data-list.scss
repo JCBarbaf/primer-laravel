@@ -9,17 +9,25 @@
     background-color: $grey-black;
     border-radius: 20px;
     box-shadow: $sahdow;
-}
-.data-list header {
-    background-color: $primary-color;
-    margin: 0;
-    padding: 0.5%;
-    display: flex;
-    justify-content: space-between;
-    padding: 2% 3% 1% 2%;
-    align-items: center;
-    border-bottom: $border;
-    border-width: 3px;
+    header {
+        background-color: $primary-color;
+        margin: 0;
+        padding: 0.5%;
+        display: flex;
+        justify-content: space-between;
+        padding: 2% 3% 1% 2%;
+        align-items: center;
+        border-bottom: $border;
+        border-width: 3px;
+    }
+    footer {
+        background-color: $primary-color;
+        display: flex;
+        justify-content: center;
+        padding: 2%;
+        border-top: $border;
+        border-width: 3px;
+    }
 }
 .list-content {
     flex: 1;
@@ -47,36 +55,30 @@
 .data-table-content {
     padding: 1% 3%;
 }
-.data-list footer {
-    background-color: $primary-color;
-    display: flex;
-    justify-content: center;
-    padding: 2%;
-    border-top: $border;
-    border-width: 3px;
-}
 .pagination {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-.pagination svg {
-    width: 15px;
-}
-.pagination button:hover {
-    animation: none;
-    filter: brightness(0.8);
-}
-.pagination button:disabled {
-    font-weight: bold;
-    filter: brightness(0.5);
-}
-.pagination .last-page {
-    transform: scaleX(-1);
-}
-.pagination .current-page {
-    border-bottom: $border;
-    border-color: $tertiary-color;
+    svg {
+        width: 15px;
+    }
+    button{
+        &:hover {
+            animation: none;
+            filter: brightness(0.8);
+        }
+        &:disabled {
+            font-weight: bold;
+            filter: brightness(0.5);
+        }
+    }
+    .last-page {
+        transform: scaleX(-1);
+    }
+    .current-page {
+        border-bottom: $border;
+        border-color: $tertiary-color;
+    }
 }
 @media (max-width: 756px) {
     .data-list {

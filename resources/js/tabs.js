@@ -1,11 +1,11 @@
 export default (() => {
-    let tabs = document.querySelectorAll(".tabs .tab");
+    let tabs = document.querySelectorAll('.tabs .tab');
     tabs.forEach(tab => {
-        tab.addEventListener("click",() => {
+        tab.addEventListener('click',() => {
             tabs.forEach(element => {
-                element.classList.remove("selected");
+                element.classList.remove('selected');
             });
-            tab.classList.add("selected");
+            tab.classList.add('selected');
         })
     });
   })();

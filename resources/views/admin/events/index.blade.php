@@ -3,26 +3,105 @@
     Eventos
 @endsection
 @section('data-list')
-    <div class="data-table">
-        <div class="data-table-header">
-            <button class="edit-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
-                </svg>
-            </button>
-            <button class="delete-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" />
-                </svg>
-            </button>
+    <header>
+        <p>5 Registros</p>
+        <button class="filter-button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M14,12V19.88C14.04,20.18 13.94,20.5 13.71,20.71C13.32,21.1 12.69,21.1 12.3,20.71L10.29,18.7C10.06,18.47 9.96,18.16 10,17.87V12H9.97L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L14.03,12H14Z" />
+            </svg>
+        </button>
+        @component('admin.components.modal')
+            <x-slot:class>filter</x-slot:class>
+            <x-slot:title>Filtro</x-slot:title>
+            <form>
+                <div class="form-field">
+                    <label for="filter-title">Título:</label>
+                    <input type="text" name="filter-title" id="filter-title">
+                </div>
+                <div class="form-field">
+                    <label for="filter-date">Fecha:</label>
+                    <input type="date" name="filter-date" id="filter-date">
+                </div>
+                <div class="form-field">
+                    <label for="filter-time">Hora:</label>
+                    <input type="time" name="filter-time" id="filter-time">
+                </div>
+            </form>
+            <div class="buttons">
+                <button>Aceptar</button>
+                <button class="close">Cancelar</button>
+            </div>
+        @endcomponent
+    </header>
+    <div class="list-content">
+        @component('admin.components.modal')
+            <x-slot:class>delete</x-slot:class>
+            <x-slot:title>¿Seguro que quieres borrar?</x-slot:title>
+            <div class="buttons">
+                <button>Si</button>
+                <button class="close">No</button>
+            </div>
+        @endcomponent
+        <div class="data-table">
+            <div class="data-table-header">
+                <button class="edit-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                    </svg>
+                </button>
+                <button class="delete-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="data-table-content">
+                <p><span>Título:</span> The game awards</p>
+                <p><span>Fecha:</span> 08/12/2023</p>
+                <p><span>Hora:</span> 01:30</p>
+                <p><span>Dirección:</span> California, USA</p>
+            </div>
         </div>
-        <div class="data-table-content">
-            <p><span>Titulo:</span> The game awards</p>
-            <p><span>Fecha:</span> 08/12/2023</p>
-            <p><span>Hora:</span> 01:30</p>
-            <p><span>Precio:</span> 0€</p>
+        <div class="data-table">
+            <div class="data-table-header">
+                <button class="edit-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
+                    </svg>
+                </button>
+                <button class="delete-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="data-table-content">
+                <p><span>Título:</span> The game awards</p>
+                <p><span>Fecha:</span> 08/12/2023</p>
+                <p><span>Hora:</span> 01:30</p>
+                <p><span>Dirección:</span> California, USA</p>
+            </div>
         </div>
     </div>
+    <footer>
+        <div class="pagination">
+            <button class="first-page">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.852 54.4136C9.04933 52.2298 9.04934 46.7702 12.852 44.5864L80.444 5.76861C84.2467 3.58477 89 6.31457 89 10.6822V88.3178C89 92.6854 84.2467 95.4152 80.444 93.2314L12.852 54.4136Z" fill="#D9D9D9"/>
+                </svg>
+            </button>
+            <button>1</button>
+            <button disabled>···</button>
+            <button class="current-page" >5</button>
+            <button disabled>···</button>
+            <button>10</button>
+            <button class="last-page">
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.852 54.4136C9.04933 52.2298 9.04934 46.7702 12.852 44.5864L80.444 5.76861C84.2467 3.58477 89 6.31457 89 10.6822V88.3178C89 92.6854 84.2467 95.4152 80.444 93.2314L12.852 54.4136Z" fill="#D9D9D9"/>
+                </svg>
+            </button>
+        </div>
+    </footer>
 @endsection
 @section('data-add')
     <div class="add-header">
@@ -32,6 +111,9 @@
             </div>
             <div class="tab">
                 <h3>Imágenes</h3>
+            </div>
+            <div class="tab">
+                <h3>Patrocinadores</h3>
             </div>
         </div>
         <div class="add-buttons">
@@ -50,7 +132,7 @@
     <form>
         <div class="form-row">
             <div class="form-field">
-                <label for="event-title">Titulo:</label>
+                <label for="event-title">Título:</label>
                 <input type="text" name="event-title" id="event-title">
             </div>
             <div class="form-field">

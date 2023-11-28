@@ -22,43 +22,48 @@
     overflow: hidden;
     transform: scale(0);
     transition: transform 0.1s ease-out;
+    h3 {
+        background-color: $primary-color;
+        margin: 0;
+        padding: 1%;
+        text-align: center;
+    }
+    form {
+        padding: 2%;
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 2% 0;
+    }
+    button {
+        background-color: $tertiary-color;
+        padding: 1% 5%;
+        border-radius: 10px;
+        &:hover {
+            transform: scale(1.1);
+            filter: brightness(1.1);
+        }
+    }
+    .close {
+        background-color: $red;
+    }
 }
 .modal.active .modal-content {
     transform: scale(1);
 }
-.modal-content h3 {
-    background-color: $primary-color;
-    margin: 0;
-    padding: 1%;
-    text-align: center;
-}
-.modal-content form {
-    padding: 2%;
-}
-.modal-content form .buttons {
-    display: flex;
-    justify-content: space-evenly;
-    padding-top: 5%;
-}
-.modal-content form button {
-    background-color: $tertiary-color;
-    padding: 1% 5%;
-    border-radius: 10px;
-}
-.modal-content form button:hover {
-    transform: scale(1.1);
-    filter: brightness(1.1);
-}
-.modal-content .close {
-    background-color: $red;
-}
 // Delete modal
-.delete .modal-content {
-    min-width: 20%;
-    border-radius: 5px;
-}
-.delete .modal-content h3 {
-    padding: 3% 1%;
+.delete {
+    .modal-content {
+        min-width: 20%;
+        border-radius: 5px;
+        h3 {
+            padding: 3% 1%;
+        }
+    }
+    .buttons {
+        padding: 5% 0;
+    }
 }
 .delete.modal button {
     width: 30%;

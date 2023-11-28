@@ -10,11 +10,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     border-bottom: $border;
     border-width: 3px;
-}
-.add-header .tabs {
-    display: flex;
+    .tabs {
+        display: flex;
+    }
 }
 .tab {
     width: 100%;
@@ -22,7 +23,6 @@
     padding: 0 10%;
     background-color: $primary-color;
     cursor: pointer;
-    z-index: $tab-zindex;
 }
 .tab.selected {
     filter: brightness(0.8);
@@ -36,27 +36,28 @@
 .form-row {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 .form-field {
     flex: 1;
     margin: 1% 0;
     padding: 1%;
-}
-.form-field input, .form-field textarea {
-    width: 95%;
-    height: 2rem;
-    background-color: $white;
-    color: $black;
-    margin-top: 2%;
-    padding: 1% 2%;
-    border: none;
-    border-bottom: $border;
-    border-width: 5px;
-    border-radius: 5px 5px 0 0;
-    resize: vertical;
-}
-.form-field textarea {
-    min-height: 5rem;
+    input,textarea {
+        width: 95%;
+        height: 2rem;
+        background-color: $white;
+        color: $black;
+        margin-top: 2%;
+        padding: 1% 2%;
+        border: none;
+        border-bottom: $border;
+        border-width: 5px;
+        border-radius: 5px 5px 0 0;
+        resize: vertical;
+    }
+    textarea {
+        min-height: 5rem;
+    }
 }
 .form-field input[type="number"]::-webkit-outer-spin-button,
 .form-field input[type="number"]::-webkit-inner-spin-button {
@@ -68,6 +69,7 @@
 @media (max-width: 756px) {
     .form-field {
         width: 100%;
+        flex: none;
     }
     .data-add {
         width: 49%;

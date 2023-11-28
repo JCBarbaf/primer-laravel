@@ -12,38 +12,34 @@
                 <path d="M14,12V19.88C14.04,20.18 13.94,20.5 13.71,20.71C13.32,21.1 12.69,21.1 12.3,20.71L10.29,18.7C10.06,18.47 9.96,18.16 10,17.87V12H9.97L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L14.03,12H14Z" />
             </svg>
         </button>
-        <div class="filter modal">
-            <div class="modal-content">
-                <h3>Filtro</h3>
-                <form>
-                    <div class="form-field">
-                        <label for="filter-name">Nombre:</label>
-                        <input type="text" name="filter-name" id="filter-name">
-                    </div>
-                    <div class="form-field">
-                        <label for="filter-email">Email:</label>
-                        <input type="email" name="filter-email" id="filter-email">
-                    </div>
-                    <div class="buttons">
-                        <button>Aceptar</button>
-                        <button class="close">Cancelar</button>
-                    </div>
-                </form>
+        @component('admin.components.modal')
+            <x-slot:class>filter</x-slot:class>
+            <x-slot:title>Filtro</x-slot:title>
+            <form>
+                <div class="form-field">
+                    <label for="filter-name">Nombre:</label>
+                    <input type="text" name="filter-name" id="filter-name">
+                </div>
+                <div class="form-field">
+                    <label for="filter-email">Email:</label>
+                    <input type="email" name="filter-email" id="filter-email">
+                </div>
+            </form>
+            <div class="buttons">
+                <button>Aceptar</button>
+                <button class="close">Cancelar</button>
             </div>
-        </div>
+        @endcomponent
     </header>
     <div class="list-content">
-        <div class="delete modal">
-            <div class="modal-content">
-                <h3>¿Seguro que quieres borrar?</h3>
-                <form>
-                    <div class="buttons">
-                        <button>Si</button>
-                        <button class="close">No</button>
-                    </div>
-                </form>
+        @component('admin.components.modal')
+            <x-slot:class>delete</x-slot:class>
+            <x-slot:title>¿Seguro que quieres borrar?</x-slot:title>
+            <div class="buttons">
+                <button>Si</button>
+                <button class="close">No</button>
             </div>
-        </div>
+        @endcomponent
         <div class="data-table">
             <div class="data-table-header">
                 <button class="edit-button">
