@@ -1,14 +1,10 @@
 export default (() => {
-    let filterButton = document.querySelector('.filter-button');
     let filterModal = document.querySelector('.filter.modal');
-    let closeButton = filterModal.querySelector('.filter.modal .close');
-
-    filterButton.addEventListener('click',() => {
-        event.preventDefault();
-        filterModal.classList.toggle('active');
-    })
-    closeButton.addEventListener('click',() => {
-        event.preventDefault();
-        filterModal.classList.toggle('active');
-    })
+    document.addEventListener('showFilterModal', (event => {
+        filterModal.classList.add('active');
+        filterModal.querySelector('.close').addEventListener('click',() => {
+            event.preventDefault();
+            filterModal.classList.remove('active');
+        });
+    }));
   })();

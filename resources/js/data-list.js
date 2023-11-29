@@ -1,16 +1,11 @@
 export default (() => {
     let dataList = document.querySelector('.data-list');
-    let deleteModal = document.querySelector('.delete.modal');
-    let closeButton = deleteModal.querySelector('.delete.modal .close');
-
     dataList?.addEventListener('click', async (event) => {
-
         if (event.target.closest('.delete-button')) {
-            deleteModal.classList.toggle('active');
+            document.dispatchEvent(new CustomEvent('showDeleteModal'));
         }
-    });
-    closeButton.addEventListener('click',() => {
-        event.preventDefault();
-        deleteModal.classList.toggle('active');
+        if (event.target.closest('.filter-button')) {
+            document.dispatchEvent(new CustomEvent('showFilterModal'));
+        }
     });
   })();
