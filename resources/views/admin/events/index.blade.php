@@ -12,7 +12,7 @@
         </button>
         @component('admin.components.modal')
             <x-slot:class>filter</x-slot:class>
-            <x-slot:title>Filtro</x-slot:title>
+            <x-slot:title>{{ __('admin/filter.filtertitle') }}</x-slot:title>
             <form>
                 <div class="form-field">
                     <label for="filter-title">Título:</label>
