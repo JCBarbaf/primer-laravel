@@ -32,6 +32,12 @@
 .data-add form {
     padding: 2%;
 }
+.tab-content {
+    display: none;
+}
+.tab-content.selected {
+    display: block;
+}
 .form-row {
     display: flex;
     justify-content: space-between;
@@ -52,19 +58,39 @@
         border-bottom: $border;
         border-width: 5px;
         border-radius: 5px 5px 0 0;
-        resize: vertical;
     }
     textarea {
+        resize: none;
         min-height: 5rem;
+    }
+    .invalid {
+        border-color: $red;
+    }
+    .valid {
+        border-color: $green;
     }
 }
 .form-field input[type="number"]::-webkit-outer-spin-button,
 .form-field input[type="number"]::-webkit-inner-spin-button {
     appearance: none;
 }
-.form-field input:focus, .form-field textarea:focus {
-    border-color: $primary-color;
+.form-field input[type="file"] {
+    display: none;
 }
+.form-field .file-icon {
+    background-color: $tertiary-color;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    margin-top: 1%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+// .form-field input:focus, .form-field textarea:focus {
+//     border-color: $primary-color;
+// }
 @media (max-width: 756px) {
     .form-field {
         width: 100%;

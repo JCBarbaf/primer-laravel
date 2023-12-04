@@ -6,7 +6,7 @@
     {{-- @component('admin.components.data-filter')
     @endcomponent --}}
     <header>
-        <p>5 {{ __('admin/pagination.records') }}</p>
+        <p>{{trans_choice('admin/pagination.total',  5, ['count' => 5])}}</p>
         <button class="filter-button">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M14,12V19.88C14.04,20.18 13.94,20.5 13.71,20.71C13.32,21.1 12.69,21.1 12.3,20.71L10.29,18.7C10.06,18.47 9.96,18.16 10,17.87V12H9.97L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L14.03,12H14Z" />
@@ -140,11 +140,14 @@
 @section('data-add')
     <div class="add-header">
         <div class="tabs">
-            <div class="tab selected">
+            <div class="tab selected" data-field="principal">
                 <h3>Principal</h3>
             </div>
-            <div class="tab">
+            <div class="tab" data-field="images">
                 <h3>Imágenes</h3>
+            </div>
+            <div class="tab" data-field="seo">
+                <h3>SEO</h3>
             </div>
         </div>
         <div class="add-buttons">
@@ -161,25 +164,43 @@
         </div>
     </div>
     <form>
-        <div class="form-row">
-            <div class="form-field">
-                <label for="user">Usuario:</label>
-                <input type="text" name="user" id="user">
+        <div class="tab-content selected" data-field="principal">
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="user">Usuario:</label>
+                    <input type="text" name="user" id="user" data-rule="lettersonly">
+                </div>
+                <div class="form-field">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                </div>
             </div>
-            <div class="form-field">
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email">
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="passwd">Contraseña:</label>
+                    <input class="validate" type="password" name="passwd" id="passwd" data-minlength="8">
+                </div>
+                <div class="form-field">
+                    <label for="conf-passwd">Confirmar contraseña:</label>
+                    <input type="password" name="conf-passwd" id="conf-passwd">
+                </div>
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-field">
-                <label for="passwd">Contraseña:</label>
-                <input type="password" name="passwd" id="passwd">
+        <div class="tab-content" data-field="images">
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="avatar">Avatar:</label>
+                    <label class="file-icon" for="avatar">
+                        Buscar imágen:
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z" />
+                        </svg>
+                    </label>
+                    <input type="file" name="avatar" id="avatar">
+                </div>
             </div>
-            <div class="form-field">
-                <label for="conf-passwd">Confirmar contraseña:</label>
-                <input type="password" name="conf-passwd" id="conf-passwd">
-            </div>
+        </div>
+        <div class="tab-content" data-field="seo">
         </div>
     </form>
 @endsection
