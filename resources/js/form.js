@@ -1,0 +1,130 @@
+export default (() => {
+
+  const formSection = document.querySelector('.data-add');
+
+  document.addEventListener("refreshForm", event => {
+    formSection.innerHTML = event.detail.form;
+  });
+
+  formSection?.addEventListener('click', async (event) => {
+
+    if (event.target.closest('.save-button')) {
+
+      const storeButton = event.target.closest('.save-button')
+      const endpoint = storeButton.dataset.endpoint;
+      const form = document.querySelector('.admin-form');
+      const formData = new FormData(form);
+
+      try{
+        const response = await fetch(endpoint, {
+          headers: {
+            'Accept': 'application/json',
+            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+          },
+          method: 'POST',
+          body: formData
+        })
+  
+        if (response.status === 500 || response.status === 422) {
+          throw response
+        }
+  
+        if (response.status === 200) {  
+  
+          const json = await response.json();
+
+          formSection.innerHTML = json.form;
+
+          document.dispatchEvent(new CustomEvent('refreshTable', {
+            detail: {
+              table: json.table,
+            }
+          }));
+
+          document.dispatchEvent(new CustomEvent('notification', {
+            detail: {
+              message: json.message,
+              type: 'success'
+            }
+          }))
+        }
+
+      }catch(error){
+
+        if (error.status === 422) {
+
+          const json = await error.json();
+
+          document.dispatchEvent(new CustomEvent('showformValidations', {
+            detail: {
+              formValidation: form.previousElementSibling,
+              errors: json.errors
+            }
+          }))
+        }
+
+        if (error.status === 500) {
+
+          const json = await error.json();
+
+          document.dispatchEvent(new CustomEvent('notification', {
+            detail: {
+              message: json.message,
+              type: 'error'
+            }
+          }))
+        }
+      }
+    }
+
+    if (event.target.closest('.clean-button')) {
+
+      const cleanButton = event.target.closest('.clean-button')
+      const endpoint = cleanButton.dataset.endpoint;
+
+      try{
+        const response = await fetch(endpoint, {
+          headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+          },
+          method: 'GET',
+        })
+  
+        if (response.status === 500) {
+          throw response
+        }
+  
+        if (response.status === 200) {  
+
+          const json = await response.json();
+
+        //   console.log(json.form);
+  
+          document.dispatchEvent(new CustomEvent('refreshForm', {
+            detail: {
+              form: json.form,
+            }
+          }));
+        }
+      }catch(error){
+        document.dispatchEvent(new CustomEvent('notification', {
+          detail: {
+            message: 'La acción no se pudo completar por un fallo en el servidor.',
+            type: 'error'
+          }
+        }))
+      }
+    }
+  });
+
+  formSection?.addEventListener('input', async (event) => {
+
+    if (event.target.closest('[type="range')) {
+
+      const inputRange = event.target.closest('[type="range');
+      const rangeValue = inputRange.parentElement.querySelector('.range-value');
+
+      rangeValue.innerText = inputRange.value
+    }
+  });
+})();

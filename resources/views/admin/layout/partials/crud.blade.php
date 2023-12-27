@@ -5,10 +5,10 @@
 @section('content')
     <div class="data">
         <div class="data-list">
-           @yield('data-list')
+           @yield('table')
         </div>
         <div class="data-add">
-            @yield('data-add')
+            @yield('form')
         </div>
     </div>
 @endsection

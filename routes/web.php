@@ -33,22 +33,18 @@ Route::group(['prefix' => 'admin'], function () {
     ]
   ]);
 
-  Route::resource('eventos', 'App\Http\Controllers\Admin\EventController', [
-    'parameters' => [
-      'eventos' => 'event', 
-    ],
-    'names' => [
-      'index' => 'events',
-      'create' => 'events_create',
-      'edit' => 'events_edit',
-      'store' => 'events_store',
-      'destroy' => 'events_destroy',
-    ]
-  ]);
-
-  Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-  Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-  Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+  // Route::resource('eventos', 'App\Http\Controllers\Admin\EventController', [
+  //   'parameters' => [
+  //     'eventos' => 'event', 
+  //   ],
+  //   'names' => [
+  //     'index' => 'events',
+  //     'create' => 'events_create',
+  //     'edit' => 'events_edit',
+  //     'store' => 'events_store',
+  //     'destroy' => 'events_destroy',
+  //   ]
+  // ]);
 });
 
 // require __DIR__.'/auth.php';
