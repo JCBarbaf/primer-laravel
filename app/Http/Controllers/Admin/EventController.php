@@ -5,24 +5,24 @@ namespace App\Http\Controllers\Admin;
 // use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Http\Requests\Admin\UserRequest;
+use App\Models\Event;
+use App\Http\Requests\Admin\EventRequest;
 
-class UserController extends Controller
+class EventController extends Controller
 {
-  public function __construct(private User $user){}
+  public function __construct(private Event $event){}
   
   public function index()
   {
     try{
 
-      $users = $this->user
+      $events = $this->event
         ->orderBy('created_at', 'desc')
         ->paginate(10);
 
-      $view = View::make('admin.users.index')
-      ->with('user', $this->user)
-      ->with('users', $users);
+      $view = View::make('admin.events.index')
+      ->with('event', $this->event)
+      ->with('events', $events);
 
       if(request()->ajax()) {
           
@@ -48,8 +48,8 @@ class UserController extends Controller
   {
     try {
 
-      $view = View::make('admin.users.index')
-        ->with('user', $this->user)
+      $view = View::make('admin.events.index')
+        ->with('event', $this->event)
         ->renderSections();
 
       return response()->json([
@@ -63,7 +63,7 @@ class UserController extends Controller
     }
   }
 
-  public function store(UserRequest $request)
+  public function store(EventRequest $request)
   {            
     try{
 
@@ -75,11 +75,11 @@ class UserController extends Controller
         unset($data['password']);
       }
   
-      $this->user->updateOrCreate([
+      $this->event->updateOrCreate([
         'id' => $request->input('id')
       ], $data);
 
-      $users = $this->user
+      $events = $this->event
       ->orderBy('created_at', 'desc')
       ->paginate(10);
 
@@ -89,9 +89,9 @@ class UserController extends Controller
         $message = \Lang::get('admin/notification.create');
       }
 
-      $view = View::make('admin.users.index')
-        ->with('users', $users)
-        ->with('user', $this->user)
+      $view = View::make('admin.events.index')
+        ->with('events', $events)
+        ->with('event', $this->event)
         // -with('message', $message)
         ->renderSections();        
 
@@ -107,12 +107,12 @@ class UserController extends Controller
     }
   }
 
-  public function edit(User $user)
+  public function edit(Event $event)
   {
     try {
 
-      $view = View::make('admin.users.index')
-      ->with('user', $user);
+      $view = View::make('admin.events.index')
+      ->with('event', $event);
       
       if(request()->ajax()) {
 
@@ -132,20 +132,20 @@ class UserController extends Controller
     }
   }
 
-  public function destroy(User $user)
+  public function destroy(Event $event)
   {
     try{
-      $user->delete();
+      $event->delete();
 
-      $users = $this->user
+      $events = $this->event
       ->orderBy('created_at', 'desc')
       ->paginate(10);
 
       $message = \Lang::get('admin/notification.destroy');
       
-      $view = View::make('admin.users.index')
-        ->with('user', $this->user)
-        ->with('users', $users)
+      $view = View::make('admin.events.index')
+        ->with('event', $this->event)
+        ->with('events', $events)
         // -with('message', $message)
         ->renderSections();
       

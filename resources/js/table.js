@@ -53,7 +53,7 @@ export default (() => {
       const destroyButton = event.target.closest('.delete-button');
       const endpoint = destroyButton.dataset.endpoint;
 
-      document.dispatchEvent(new CustomEvent('openModalDestroy', {
+      document.dispatchEvent(new CustomEvent('showDeleteModal', {
         detail: {
           endpoint: endpoint,
         }

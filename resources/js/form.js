@@ -81,7 +81,7 @@ export default (() => {
 
       const cleanButton = event.target.closest('.clean-button')
       const endpoint = cleanButton.dataset.endpoint;
-
+      console.log(endpoint)
       try{
         const response = await fetch(endpoint, {
           headers: {
@@ -98,13 +98,15 @@ export default (() => {
 
           const json = await response.json();
 
-        //   console.log(json.form);
+          // console.log(json.form);
+
+          formSection.innerHTML = json.form;
   
-          document.dispatchEvent(new CustomEvent('refreshForm', {
-            detail: {
-              form: json.form,
-            }
-          }));
+          // document.dispatchEvent(new CustomEvent('refreshForm', {
+          //   detail: {
+          //     form: json.form,
+          //   }
+          // }));
         }
       }catch(error){
         document.dispatchEvent(new CustomEvent('notification', {

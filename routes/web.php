@@ -33,18 +33,18 @@ Route::group(['prefix' => 'admin'], function () {
     ]
   ]);
 
-  // Route::resource('eventos', 'App\Http\Controllers\Admin\EventController', [
-  //   'parameters' => [
-  //     'eventos' => 'event', 
-  //   ],
-  //   'names' => [
-  //     'index' => 'events',
-  //     'create' => 'events_create',
-  //     'edit' => 'events_edit',
-  //     'store' => 'events_store',
-  //     'destroy' => 'events_destroy',
-  //   ]
-  // ]);
+  Route::resource('eventos', 'App\Http\Controllers\Admin\EventController', [
+    'parameters' => [
+      'eventos' => 'event', 
+    ],
+    'names' => [
+      'index' => 'events',
+      'create' => 'events_create',
+      'edit' => 'events_edit',
+      'store' => 'events_store',
+      'destroy' => 'events_destroy',
+    ]
+  ]);
 });
 
 // require __DIR__.'/auth.php';
