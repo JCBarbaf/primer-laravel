@@ -5,7 +5,8 @@
     <h1>@yield('title')</h1>
     {{-- <p>{{trans_choice('admin/user-area.wellcome',  'n', ['name' => 'pepe'])}}</p> --}}
     @component('admin.components.burger-menu')
-        <a href="./users">Users</a>
-        <a href="./events">Events</a>
+        <a href="./usuarios">Users</a>
+        <a href="./eventos">Events</a>
+        <a href="./idiomas">Languages</a>
     @endcomponent
 </header>

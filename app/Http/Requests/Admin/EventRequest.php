@@ -26,8 +26,8 @@ class EventRequest extends FormRequest
         'endDate' => 'required|date|after_or_equal:startDate',
         'startTime' => 'required|date_format:H:i',
         'endTime' => 'required|date_format:H:i|after:startTime',
-        'address' => 'string|max:255',
-        'price' => 'required|numeric|min:4|regex:/^\d+.\d{2}$/',
+        'address' => 'max:255',
+        'price' => 'numeric|regex:/^\d+(\.\d{1,2})?$/',
       ];
     }
 

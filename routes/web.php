@@ -45,6 +45,19 @@ Route::group(['prefix' => 'admin'], function () {
       'destroy' => 'events_destroy',
     ]
   ]);
+
+  Route::resource('idiomas', 'App\Http\Controllers\Admin\LanguageController', [
+    'parameters' => [
+      'idiomas' => 'language', 
+    ],
+    'names' => [
+      'index' => 'languages',
+      'create' => 'languages_create',
+      'edit' => 'languages_edit',
+      'store' => 'languages_store',
+      'destroy' => 'languages_destroy',
+    ]
+  ]);
 });
 
 // require __DIR__.'/auth.php';

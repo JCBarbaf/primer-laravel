@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->date('startDate');
-            $table->date('endDate');
-            $table->time('startTime');
-            $table->time('endTime');
-            $table->string('address')->nullable()->default('Online');
-            $table->decimal('price', 8, 2)->nullable()->default(0);
+            $table->string('label');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('languages');
     }
 };
