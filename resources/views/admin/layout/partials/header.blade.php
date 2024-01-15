@@ -8,5 +8,7 @@
         <a href="./usuarios">Users</a>
         <a href="./eventos">Events</a>
         <a href="./idiomas">Languages</a>
+        <a href="./faqs">Faqs</a>
+        <a href="./empresas">Empresas</a>
     @endcomponent
 </header>

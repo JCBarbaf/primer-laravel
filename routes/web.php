@@ -58,6 +58,29 @@ Route::group(['prefix' => 'admin'], function () {
       'destroy' => 'languages_destroy',
     ]
   ]);
+
+  Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
+    'names' => [
+      'index' => 'faqs',
+      'create' => 'faqs_create',
+      'edit' => 'faqs_edit',
+      'store' => 'faqs_store',
+      'destroy' => 'faqs_destroy',
+    ]
+  ]);
+
+  Route::resource('empresas', 'App\Http\Controllers\Admin\BusinessProfileController', [
+    'parameters' => [
+      'empresas' => 'business_profile', 
+    ],
+    'names' => [
+      'index' => 'business_profiles',
+      'create' => 'business_profiles_create',
+      'edit' => 'business_profiles_edit',
+      'store' => 'business_profiles_store',
+      'destroy' => 'business_profiles_destroy',
+    ]
+  ]);
 });
 
 // require __DIR__.'/auth.php';
