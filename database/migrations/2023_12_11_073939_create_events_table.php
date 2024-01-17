@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->integer('town_id')->unigned()->index()->nullable();
             $table->string('name');
-            $table->date('startDate');
-            $table->date('endDate');
-            $table->time('startTime');
-            $table->time('endTime');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->string('address')->nullable()->default('Online');
             $table->decimal('price', 8, 2)->nullable()->default(0);
             $table->timestamps();

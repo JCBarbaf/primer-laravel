@@ -48,15 +48,13 @@
                         </button>
                     </div>
                     <div class="data-table-content">
-                        <p><span>Title:</span> {{$event_element->name}}</p>
-                        <p><span>Start date:</span> {{$event_element->startDate}}</p>
-                        <p><span>End date:</span> {{$event_element->endDate}}</p>
-                        <p><span>start time:</span> {{$event_element->startTime}}</p>
-                        <p><span>End date:</span> {{$event_element->endTime}}</p>
+                        <p><span>Name:</span> {{$event_element->name}}</p>
+                        <p><span>Start date:</span> {{$event_element->start_date}}</p>
+                        <p><span>End date:</span> {{$event_element->end_date}}</p>
+                        <p><span>start time:</span> {{$event_element->start_time}}</p>
+                        <p><span>End date:</span> {{$event_element->end_time}}</p>
                         <p><span>Adress:</span> {{$event_element->address}}</p>
                         <p><span>Price:</span> {{$event_element->price}}€</p>
-                        <p><span>Created at:</span> {{$event_element->created_at}}</p>
-                        <p><span>Updated at:</span> {{$event_element->updated_at}}</p>
                     </div>
                 </div>
             @endforeach
@@ -116,25 +114,34 @@
                     <label for="name">Evento:</label>
                     <input type="text" name="name" value="{{$event->name ?? ''}}">
                 </div>
+                <div class="form-field">
+                    <label for="town_id">Población:</label>
+                    <select name="town_id">
+                        <option value="" disabled selected>Población</option>
+                        @foreach ($towns as $town)
+                            <option value="{{$town->id}}" {{$town->id == $event->town_id ? 'selected' : ''}}>{{$town->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
             <div class="form-row">
                 <div class="form-field">
-                    <label for="startDate">Start date:</label>
-                    <input type="date" name="startDate" value="{{$event->startDate ?? ''}}">
+                    <label for="start_date">Start date:</label>
+                    <input type="date" name="start_date" value="{{$event->start_date ?? ''}}">
                 </div>
                 <div class="form-field">
-                    <label for="endDate">End date:</label>
-                    <input type="date" name="endDate" value="{{$event->endDate ?? ''}}">
+                    <label for="end_date">End date:</label>
+                    <input type="date" name="end_date" value="{{$event->end_date ?? ''}}">
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-field">
-                    <label for="startTime">Start time:</label>
-                    <input type="time" name="startTime" value="{{$event->startTime ?? ''}}">
+                    <label for="start_time">Start time:</label>
+                    <input type="time" name="start_time" value="{{$event->start_time ?? ''}}">
                 </div>
                 <div class="form-field">
-                    <label for="endTime">End time:</label>
-                    <input type="time" name="endTime" value="{{$event->endTime ?? ''}}">
+                    <label for="end_time">End time:</label>
+                    <input type="time" name="end_time" value="{{$event->end_time ?? ''}}">
                 </div>
             </div>
             <div class="form-row">

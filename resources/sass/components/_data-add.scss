@@ -47,7 +47,7 @@
     flex: 1;
     margin: 1% 0;
     padding: 1%;
-    input,textarea {
+    input,textarea,select {
         width: 95%;
         height: 2rem;
         background-color: $white;
@@ -58,6 +58,9 @@
         border-bottom: $border;
         border-width: 5px;
         border-radius: 5px 5px 0 0;
+    }
+    select {
+        height: 3rem;
     }
     textarea {
         resize: none;
