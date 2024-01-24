@@ -29,8 +29,11 @@
 .add-buttons {
     padding: 0 2%;
 }
-.data-add form {
-    padding: 2%;
+.admin-form {
+  padding: 2%;
+  .tab {
+    padding: 0 30%;
+  } 
 }
 .tab-content {
     display: none;

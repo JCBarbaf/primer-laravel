@@ -89,9 +89,6 @@
             <div class="tab" data-field="images">
                 <h3>Imágenes</h3>
             </div>
-            <div class="tab" data-field="seo">
-                <h3>SEO</h3>
-            </div>
         </div>
         <div class="add-buttons">
             <button class="clean-button" data-endpoint="{{route('events_create')}}">
@@ -154,6 +151,31 @@
                     <input type="number" name="price" value="{{$event->price ?? 0.00}}">
                 </div>
             </div>
+            <div class="add-header">
+              <div class="tabs">
+                @foreach($languages as $language)
+                  <div class="tab {{$loop->first == 1 ? 'selected' : ''}}" data-field="{{$language->label}}">
+                      <h3>{{$language->label}}</h3>
+                  </div>
+                @endforeach
+              </div>
+            </div>
+            @foreach($languages as $language)
+              <div class="tab-content {{$loop->first == 1 ? 'selected' : ''}}" data-field="{{$language->label}}">
+                <div class="form-row">
+                  <div class="form-field">
+                      <label for="title">Title:</label>
+                      <input type="text" name="title" value="">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="description">Description:</label>
+                    <textarea name="description" value=""></textarea>
+                  </div>
+                </div>
+              </div>
+            @endforeach
         </div>
         <div class="tab-content" data-field="images">
             <div class="form-row">
@@ -168,8 +190,6 @@
                     <input type="file" name="avatar" id="avatar">
                 </div>
             </div>
-        </div>
-        <div class="tab-content" data-field="seo">
         </div>
     </form>
 @endsection
