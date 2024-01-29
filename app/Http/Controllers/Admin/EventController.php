@@ -7,10 +7,13 @@ use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\Event;
 use App\Http\Requests\Admin\EventRequest;
+use App\Services\LocaleService\LocaleService;
 
 class EventController extends Controller
 {
-  public function __construct(private Event $event){}
+  public function __construct(private Event $event, private LocaleService $localeService){
+
+  }
   
   public function index()
   {
@@ -69,10 +72,14 @@ class EventController extends Controller
 
       $data = $request->validated();
 
-      $this->event->updateOrCreate([
+      $event = $this->event->updateOrCreate([
         'id' => $request->input('id')
       ], $data);
 
+      if(request('locale')){
+        $locale = $this->localeService->store(request('locale'), $event->id);
+      }
+      
       $events = $this->event
       ->orderBy('created_at', 'desc')
       ->paginate(10);

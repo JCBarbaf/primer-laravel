@@ -164,14 +164,14 @@
               <div class="tab-content {{$loop->first == 1 ? 'selected' : ''}}" data-field="{{$language->label}}">
                 <div class="form-row">
                   <div class="form-field">
-                      <label for="title">Title:</label>
-                      <input type="text" name="title" value="">
+                      <label for="locale['title.{{$language->label}}']">Title:</label>
+                      <input type="text" name="locale['title.{{$language->label}}']" value="">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-field">
-                    <label for="description">Description:</label>
-                    <textarea name="description" value=""></textarea>
+                    <label for="locale['description.{{$language->label}}']">Description:</label>
+                    <textarea name="locale['description.{{$language->label}}']" value=""></textarea>
                   </div>
                 </div>
               </div>
