@@ -12,14 +12,14 @@ use App\Services\LocaleService\LocaleService;
 class EventController extends Controller
 {
   public function __construct(private Event $event, private LocaleService $localeService){
-
+    $this->localeService->setEntity('events');
   }
   
   public function index()
   {
     try{
 
-      $events = $this->event
+      $events = $this->event->with('town')
         ->orderBy('created_at', 'desc')
         ->paginate(10);
 
@@ -111,6 +111,8 @@ class EventController extends Controller
   public function edit(Event $event)
   {
     try {
+
+      $event = $this->localeService->parseLocales($event);
 
       $view = View::make('admin.events.index')
       ->with('event', $event);

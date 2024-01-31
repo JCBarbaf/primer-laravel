@@ -49,6 +49,7 @@
                     </div>
                     <div class="data-table-content">
                         <p><span>Name:</span> {{$event_element->name}}</p>
+                        <p><span>Town:</span> {{$event_element->town->name}}</p>
                         <p><span>Start date:</span> {{$event_element->start_date}}</p>
                         <p><span>End date:</span> {{$event_element->end_date}}</p>
                         <p><span>start time:</span> {{$event_element->start_time}}</p>
@@ -164,14 +165,14 @@
               <div class="tab-content {{$loop->first == 1 ? 'selected' : ''}}" data-field="{{$language->label}}">
                 <div class="form-row">
                   <div class="form-field">
-                      <label for="locale['title.{{$language->label}}']">Title:</label>
-                      <input type="text" name="locale['title.{{$language->label}}']" value="">
+                      <label for="locale[title.{{$language->label}}]">Title:</label>
+                      <input type="text" name="locale[title.{{$language->label}}]" value="{{$event['title.'.$language->label] ?? ''}}">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-field">
-                    <label for="locale['description.{{$language->label}}']">Description:</label>
-                    <textarea name="locale['description.{{$language->label}}']" value=""></textarea>
+                    <label for="locale[description.{{$language->label}}]">Description:</label>
+                    <textarea name="locale[description.{{$language->label}}]" value="{{$event['description.'.$language->label] ?? ''}}"></textarea>
                   </div>
                 </div>
               </div>
